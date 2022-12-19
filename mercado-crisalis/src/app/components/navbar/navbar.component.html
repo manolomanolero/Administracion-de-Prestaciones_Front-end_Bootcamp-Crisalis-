@@ -2,8 +2,7 @@
     <a
     [routerLink]="'/'"
     mat-icon-button
-    class="example-icon"
-    arial-label="Example icon-button with menu icon"
+    arial-label="Home icon"
   >
     <mat-icon>home</mat-icon>
   </a>
@@ -12,38 +11,40 @@
   <a
     *ngIf = "!isLoggedIn"
     [routerLink]="'/login'"
-    mat-icon-button
-    class = "example-icon favorite-icon  mr20"
-    aria-label = "Example icon-button with heart icon"
+    mat-raised-button
+    class = "mr20"
+    color="primary"
+    aria-label = "Login page button"
   >
     Iniciar sesión
   </a>
   <a
     *ngIf = "!isLoggedIn"
     [routerLink]="'/signup'"
-    mat-icon-button
-    class="example-icon favorite-icon mr20 ml70"
-    aria-label="Example icon-button with heart icon"
+    mat-raised-button
+    class="mr20"
+    color="primary"
+    aria-label="Singin page button"
   >
     Registrar
-  </a>
-  <a
-    *ngIf = "isLoggedIn"
-    (click) = "logout()"
-    style="margin-right: 50px"
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    Cerrar sesión
   </a>
   <button
     *ngIf = "isLoggedIn && user"
     mat-button
     style="margin-right: 10px"
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
+    class="mr20"
+    aria-label="Welcome message and user profile"
   >
-    {{ user.username }}
+    Bienvenidx {{ user.username }}
   </button>
+  <a
+    *ngIf = "isLoggedIn"
+    (click) = "logout()"
+    mat-raised-button
+    class = "mr20"
+    color="primary"
+    aria-label="Logout icon"
+  >
+    Cerrar sesión
+  </a>
 </mat-toolbar>

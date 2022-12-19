@@ -12,9 +12,7 @@ export class LoginService {
   public loginStatusSubjec = new Subject<boolean>();
 
   public user = {
-    username: '',
-    email: '',
-    authorities: ''
+    username: ''
   };
 
   constructor(private http: HttpClient) {}
@@ -26,6 +24,8 @@ export class LoginService {
 
   public saveTokenAndData(token: any) {
     this.saveToken(token);
+    this.user.username = "carlos";
+    this.setUser(this.user);
     /* Invalid token. Try to resolve base64 encoding on backend
     var decoded = jwt_decode(token);
     console.log(decoded);*/

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(private loginService: LoginService, private snack: MatSnackBar) {}
+  constructor(private loginService: LoginService, private snack: MatSnackBar, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -47,6 +47,9 @@ export class LoginComponent implements OnInit {
       (data) => {
         console.log(data);
 				this.loginService.saveTokenAndData(data);
+				Swal.fire('Usuario logueado','Usuario logueado con exito en el sistema','success');
+				this.router.navigate(['']);
+        this.loginService.loginStatusSubjec.next(true);
       },
       (error) => {
         console.log(error);
@@ -58,18 +61,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  /*this.userService.añadirUsuario(this.user).subscribe(
-      (data) => {
-        console.log(data);
-        Swal.fire('Usuario logueado','Usuario logueado con exito en el sistema','success')
-      },(error) => {
-        console.log(error);
-        this.snack.open('Ha ocurrido un error en el sistema !!', 'Aceptar', {
-          duration : 3000,
-          verticalPosition : 'top',
-          horizontalPosition : 'right'
-        });
-      }
-    );*/
 }
