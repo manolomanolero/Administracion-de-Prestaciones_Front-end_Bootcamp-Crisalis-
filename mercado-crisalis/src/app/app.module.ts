@@ -25,6 +25,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { PrestacionesComponent } from './pages/prestaciones/prestaciones.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { PrestacionesService } from './services/prestaciones.service';
 
 
 @NgModule({
@@ -33,7 +38,8 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     SingupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PrestacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +61,11 @@ import { HomeComponent } from './pages/home/home.component';
     MatRadioModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders, PrestacionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

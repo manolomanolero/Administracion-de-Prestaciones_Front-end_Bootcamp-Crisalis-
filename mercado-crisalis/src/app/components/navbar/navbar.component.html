@@ -7,6 +7,13 @@
     <mat-icon>home</mat-icon>
   </a>
   <span>Back Office System</span>
+  <div>
+  <ul>
+    <a mat-button [routerLink]="'/prestaciones'"> Prestaciones </a>
+    <a mat-button [routerLink]="'/clientes'"> Clientes </a>
+    <a mat-button [routerLink]="'/pedidos'"> Pedidos </a>
+  </ul>
+</div>
   <span class="example-spacer"></span>
   <a
     *ngIf = "!isLoggedIn"
@@ -35,7 +42,7 @@
     class="mr20"
     aria-label="Welcome message and user profile"
   >
-    Bienvenidx {{ user.username }}
+    Bienvenidx {{ user }}
   </button>
   <a
     *ngIf = "isLoggedIn"

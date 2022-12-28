@@ -11,10 +11,6 @@ export class LoginService {
   
   public loginStatusSubjec = new Subject<boolean>();
 
-  public user = {
-    username: ''
-  };
-
   constructor(private http: HttpClient) {}
 
   //generamos el token
@@ -22,10 +18,9 @@ export class LoginService {
     return this.http.post(`${baserUrl}/auth/login`, loginData);
   }
 
-  public saveTokenAndData(token: any) {
-    this.saveToken(token);
-    this.user.username = "carlos";
-    this.setUser(this.user);
+  public saveTokenAndData(authObj: any) {
+    this.saveToken(authObj.token);
+    this.setUser(authObj.username);
     /* Invalid token. Try to resolve base64 encoding on backend
     var decoded = jwt_decode(token);
     console.log(decoded);*/
