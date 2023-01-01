@@ -1,0 +1,37 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top : 20px;">
+            <div class = "col-md-10">
+                <h1 class="text-center">Registre la prestación aquí!</h1>
+
+                <form (ngSubmit) = "formSubmit()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Nombre de la prestación</mat-label>
+                        <input required [(ngModel)] = "prestacion.nombre" name="nombre" matInput placeholder="Digite su nombre de la prestacion">
+                        <mat-hint>El nombre de la prestación es requerido </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Costo de la prestación</mat-label>
+                        <input required [(ngModel)] = "prestacion.costo" name="costo" type="number" matInput placeholder="Digite el costo">
+                        <mat-hint>El nombre de usuario debe ser único</mat-hint>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tipo de prestación</mat-label>
+                        <mat-select required [(ngModel)] = "prestacion.tipo" [(value)]="prestacion.tipo" name="tipo" placeholder="Digite el tipo">
+                          <mat-option value="servicio">Servicio</mat-option>
+                          <mat-option value="producto">Producto</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary">Registrar</button>
+                        <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+                    </div>
+                </form>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</div>

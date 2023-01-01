@@ -30,6 +30,9 @@ import { PrestacionesComponent } from './pages/prestaciones/prestaciones.compone
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { PrestacionesService } from './services/prestaciones.service';
+import { PrestacionFormComponent } from './pages/prestaciones/prestacion-form/prestacion-form.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { PrestacionesService } from './services/prestaciones.service';
     SingupComponent,
     LoginComponent,
     HomeComponent,
-    PrestacionesComponent
+    PrestacionesComponent,
+    PrestacionFormComponent,
+    ClientesComponent,
+    ClienteFormComponent
   ],
   imports: [
     BrowserModule,

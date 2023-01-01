@@ -1,3 +1,9 @@
+<h1>Listado de prestaciones</h1>
+
+<br/>
+
+<a mat-raised-button [routerLink]="'/prestaciones/crear'" color="primary">Crear prestacion</a>
+
 <table mat-table [dataSource]="prestaciones" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -24,7 +30,9 @@
   <!-- Symbol Column -->
   <ng-container matColumnDef="edit/delete">
     <th mat-header-cell *matHeaderCellDef> Edit/Delete </th>
-    <td mat-cell *matCellDef="let element"> edit / delete </td>
+    <td mat-cell *matCellDef="let element"> 
+      <a mat-button [routerLink]="['/prestaciones/editar']" [queryParams]="{id: element.id}"><mat-icon>border_color</mat-icon></a> 
+      <button mat-button (click)="onDelete(element.id)"><mat-icon>delete</mat-icon></button> </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
