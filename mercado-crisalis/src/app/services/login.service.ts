@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import baserUrl from './helper';
-import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -21,15 +20,7 @@ export class LoginService {
   public saveTokenAndData(authObj: any) {
     this.saveToken(authObj.token);
     this.setUser(authObj.username);
-    /* Invalid token. Try to resolve base64 encoding on backend
-    var decoded = jwt_decode(token);
-    console.log(decoded);*/
-
   }
-
-  /*public getCurrentUser() {
-    return this.http.get(`${baserUrl}/actual-usuario`);
-  }*/
 
   //iniciamos sesión y establecemos el token en el localStorage
   public saveToken(token: any) {
