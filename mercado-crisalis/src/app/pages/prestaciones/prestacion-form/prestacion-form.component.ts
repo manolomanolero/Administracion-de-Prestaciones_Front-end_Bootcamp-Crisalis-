@@ -11,7 +11,7 @@ import { Prestacion } from '../prestacion.model';
   templateUrl: './prestacion-form.component.html',
   styleUrls: ['./prestacion-form.component.scss'],
 })
-export class PrestacionFormComponent {
+export class PrestacionFormComponent implements OnInit{
   id: number;
   prestacion: Prestacion;
   modoEdicion: boolean = false;

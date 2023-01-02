@@ -7,13 +7,6 @@ import Swal from 'sweetalert2';
 import { PrestacionesService } from 'src/app/services/prestaciones.service';
 import { Prestacion } from './prestacion.model';
 
-/*const ELEMENT_DATA: PeriodicElement[] = [
-  { nombre: 'Hydrogen', costo: 1.0079, tipo: 'H' },
-  { nombre: 'Helium', costo: 4.0026, tipo: 'He' },
-  { nombre: 'Lithium', costo: 6.941, tipo: 'Li' },
-  { nombre: 'Beryllium', costo: 9.0122, tipo: 'Be' },
-  { nombre: 'Boron', costo: 10.811, tipo: 'B' },
-];*/
 
 @Component({
   selector: 'app-prestaciones',
