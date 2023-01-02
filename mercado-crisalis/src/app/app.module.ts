@@ -33,6 +33,9 @@ import { PrestacionesService } from './services/prestaciones.service';
 import { PrestacionFormComponent } from './pages/prestaciones/prestacion-form/prestacion-form.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form.component';
+import { ClientesService } from './services/clientes.service';
+import { EmpresasComponent } from './pages/clientes/empresas/empresas.component';
+import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/empresas-form.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form
     PrestacionesComponent,
     PrestacionFormComponent,
     ClientesComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    EmpresasComponent,
+    EmpresasFormComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,7 @@ import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form
     MatTableModule,
     MatSortModule
   ],
-  providers: [authInterceptorProviders, PrestacionesService],
+  providers: [authInterceptorProviders, PrestacionesService, ClientesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

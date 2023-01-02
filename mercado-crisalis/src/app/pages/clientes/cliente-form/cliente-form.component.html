@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top : 20px;">
+            <div class = "col-md-10">
+                <a mat-raised-button [routerLink]="'/clientes'" class="buttonLink" >Volver</a>
+                <h1 class="text-center">Registre el cliente aquí!</h1>
+
+                <form (ngSubmit) = "formSubmit()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Nombre del cliente</mat-label>
+                        <input required [(ngModel)] = "cliente.nombre" name="nombre" matInput placeholder="Digite el nombre del cliente">
+                        <mat-hint>El nombre del cliente es requerido </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Apellido del cliente</mat-label>
+                        <input required [(ngModel)] = "cliente.apellido" name="apellido" matInput placeholder="Digite el apellido del cliente">
+                        <mat-hint>El apellido del cliente es requerido </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>DNI del cliente</mat-label>
+                        <input required [(ngModel)] = "cliente.dni" name="dni" type="number" matInput placeholder="Digite el dni">
+                        <mat-hint>El DNI del cliente es requerido </mat-hint>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tipo de prestación</mat-label>
+                        <mat-select required [(ngModel)] = "cliente.tipo" [(value)]="cliente.tipo" name="tipo" placeholder="Digite el tipo" (ngModelChange)="updateTipo()">
+                          <mat-option value="Representante empresa">Representante empresa</mat-option>
+                          <mat-option value="Consumidor final">Consumidor final</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- <mat-form-field appearance="fill" id="listadoEmpresas" style="display:none;">
+                        <mat-label>Listado empresas</mat-label>
+                        <mat-select [(ngModel)] = "cliente.empresa.id" [(value)]="cliente.empresa.id" name="empresa" id="seleccionEmpresa" placeholder="Elija la empresa">
+                            <mat-option *ngFor="let item of empresas" value="{{item.id}}">{{item.razonSocial}}, CUIT: {{item.cuit}}</mat-option>
+                        </mat-select>
+                    </mat-form-field> -->
+
+                    <mat-form-field appearance="fill" id="listadoEmpresas" style="display:none;">
+                        <mat-label>Listado empresas</mat-label>
+                        <mat-select [(ngModel)] = "empresaSelected" name="empresa" id="seleccionEmpresa" placeholder="Elija la empresa">
+                            <mat-option *ngFor="let item of empresas" [ngValue]="item.id">{{item.razonSocial}}, CUIT: {{item.cuit}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary">Registrar</button>
+                        <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+                    </div>
+                </form>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top : 20px;">
+            <div class = "col-md-10">
+                <a mat-raised-button [routerLink]="'/clientes/empresas'" class="buttonLink" >Volver</a>
+                <h1 class="text-center">Registre la empresa aquí!</h1>
+
+                <form (ngSubmit) = "formSubmit()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Razón social de la empresa</mat-label>
+                        <input required [(ngModel)] = "empresa.razonSocial" name="razonSocial" matInput placeholder="Digite la Razón social de la empresa">
+                        <mat-hint>La Razón Social es requerida </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>CUIT de la empresa</mat-label>
+                        <input required [(ngModel)] = "empresa.cuit" name="cuit" type="number" matInput placeholder="Digite el CUIT">
+                        <mat-hint>El CUIT de la empresa es requerido </mat-hint>
+                    </mat-form-field>
+                    
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary">Registrar</button>
+                        <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+                    </div>
+                </form>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</div>

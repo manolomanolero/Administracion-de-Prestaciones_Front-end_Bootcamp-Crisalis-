@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/empresas-form.component';
+import { EmpresasComponent } from './pages/clientes/empresas/empresas.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PrestacionFormComponent } from './pages/prestaciones/prestacion-form/prestacion-form.component';
@@ -35,6 +39,36 @@ const routes: Routes = [
   {
     path: 'prestaciones/editar',
     component: PrestacionFormComponent,
+    pathMatch: 'prefix',
+  },
+  {
+    path: 'clientes',
+    component: ClientesComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'clientes/crear',
+    component: ClienteFormComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'clientes/editar',
+    component: ClienteFormComponent,
+    pathMatch: 'prefix',
+  },
+  {
+    path: 'clientes/empresas',
+    component: EmpresasComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'clientes/empresas/crear',
+    component: EmpresasFormComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'clientes/empresas/editar',
+    component: EmpresasFormComponent,
     pathMatch: 'prefix',
   },
 ];
