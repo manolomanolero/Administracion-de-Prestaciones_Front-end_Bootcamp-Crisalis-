@@ -42,7 +42,7 @@
                     <mat-form-field appearance="fill" id="listadoEmpresas" style="display:none;">
                         <mat-label>Listado empresas</mat-label>
                         <mat-select [(ngModel)] = "empresaSelected" name="empresa" id="seleccionEmpresa" placeholder="Elija la empresa">
-                            <mat-option *ngFor="let item of empresas" [ngValue]="item.id">{{item.razonSocial}}, CUIT: {{item.cuit}}</mat-option>
+                            <mat-option *ngFor="let item of empresas" value="{{item.id}}">{{item.razonSocial}}, CUIT: {{item.cuit}}</mat-option>
                         </mat-select>
                     </mat-form-field>
 

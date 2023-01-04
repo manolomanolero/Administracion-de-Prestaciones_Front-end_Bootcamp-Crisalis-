@@ -16,7 +16,7 @@ export class ClienteFormComponent implements OnInit {
   id: number;
   cliente: Cliente;
   modoEdicion: boolean = false;
-  empresaSelected: number = 1;
+  empresaSelected: string = "0";
   empresas: Empresa[];
 
   constructor(
@@ -111,7 +111,7 @@ export class ClienteFormComponent implements OnInit {
       return;
     }
     if (this.cliente.tipo === 'Representante empresa') {
-      if (this.cliente.empresa.id < 1) {
+      if (parseInt(this.empresaSelected) < 1) {
         this.snack.open('Debe asociarse a una empresa válida !!', 'Aceptar', {
           duration: 3000,
           verticalPosition: 'top',
@@ -131,7 +131,10 @@ export class ClienteFormComponent implements OnInit {
 
     if (this.modoEdicion) {
       console.log("estamos actualizando");
+      console.log(this.empresaSelected);
+      this.cliente.empresa.id = parseInt(this.empresaSelected);
       console.log(this.cliente);
+
       this.clientesService.updateCliente(this.cliente).subscribe(
         (data) => {
           Swal.fire(
@@ -153,6 +156,11 @@ export class ClienteFormComponent implements OnInit {
       );
     } else {
       console.log("estamos guardando");
+      if(this.cliente.empresa != null){
+        this.cliente.empresa.id = parseInt(this.empresaSelected);
+      } else {
+        this.cliente.empresa
+      }
       console.log(this.cliente);
       this.clientesService.saveCliente(this.cliente).subscribe(
         (data) => {
@@ -189,12 +197,13 @@ export class ClienteFormComponent implements OnInit {
     if (cliente.empresa != null && cliente.empresa.id > 0) {
       return 'Representante empresa';
     } else {
+      this.cliente.empresa = new Empresa(0,"",0);
       return 'Consumidor final';
     }
   }
 
   defaultEmpresaCliente(){
-    let id = this.cliente.empresa.id;
-      document.getElementById('seleccionEmpresa');
+    let id = (this.cliente.empresa != null) ? this.cliente.empresa.id : 0;
+    (<HTMLInputElement>document.getElementById('seleccionEmpresa')).value = "" + id;
   }
 }
