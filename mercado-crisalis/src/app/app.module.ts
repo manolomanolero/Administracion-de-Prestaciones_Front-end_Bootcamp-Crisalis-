@@ -36,6 +36,9 @@ import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form
 import { ClientesService } from './services/clientes.service';
 import { EmpresasComponent } from './pages/clientes/empresas/empresas.component';
 import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/empresas-form.component';
+import { ImpuestosComponent } from './pages/impuestos/impuestos.component';
+import { ImpuestosFormComponent } from './pages/impuestos/impuestos-form/impuestos-form.component';
+import { ImpuestosService } from './services/impuestos.service';
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/e
     ClientesComponent,
     ClienteFormComponent,
     EmpresasComponent,
-    EmpresasFormComponent
+    EmpresasFormComponent,
+    ImpuestosComponent,
+    ImpuestosFormComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,7 @@ import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/e
     MatTableModule,
     MatSortModule
   ],
-  providers: [authInterceptorProviders, PrestacionesService, ClientesService],
+  providers: [authInterceptorProviders, PrestacionesService, ClientesService, ImpuestosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

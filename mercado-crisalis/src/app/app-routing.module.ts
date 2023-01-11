@@ -5,6 +5,8 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/empresas-form.component';
 import { EmpresasComponent } from './pages/clientes/empresas/empresas.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ImpuestosFormComponent } from './pages/impuestos/impuestos-form/impuestos-form.component';
+import { ImpuestosComponent } from './pages/impuestos/impuestos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PrestacionFormComponent } from './pages/prestaciones/prestacion-form/prestacion-form.component';
 import { PrestacionesComponent } from './pages/prestaciones/prestaciones.component';
@@ -69,6 +71,21 @@ const routes: Routes = [
   {
     path: 'clientes/empresas/editar',
     component: EmpresasFormComponent,
+    pathMatch: 'prefix',
+  },
+  {
+    path: 'impuestos',
+    component: ImpuestosComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'impuestos/crear',
+    component: ImpuestosFormComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'impuestos/editar',
+    component: ImpuestosFormComponent,
     pathMatch: 'prefix',
   },
 ];
