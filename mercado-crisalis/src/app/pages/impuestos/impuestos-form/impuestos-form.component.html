@@ -1,0 +1,30 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+      <div class="row" style="margin-top : 20px;">
+          <div class = "col-md-10">
+              <a mat-raised-button [routerLink]="'/clientes/empresas'" class="buttonLink" >Volver</a>
+              <h1 class="text-center">Registre el impuesto aquí!</h1>
+
+              <form (ngSubmit) = "formSubmit()">
+                  <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Nombre del impuesto</mat-label>
+                      <input required [(ngModel)] = "impuesto.nombre" name="nombre" matInput placeholder="Digite el nombre del impuesto">
+                      <mat-hint>El nombre del impuesto es requerido </mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Porcentaje del impuesto</mat-label>
+                      <input required [(ngModel)] = "impuesto.porcentaje" name="porcentaje" type="number" matInput placeholder="Digite el porcentaje del impuesto">
+                      <mat-hint>El porcentaje del impuesto es requerido </mat-hint>
+                  </mat-form-field>
+
+                  <div class="container text-center">
+                      <button mat-raised-button color="primary">Registrar</button>
+                      <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+                  </div>
+              </form>
+              <br><br><br>
+          </div>
+      </div>
+  </div>
+</div>
