@@ -1,0 +1,49 @@
+<h1>Listado de pedidos</h1>
+
+<br />
+<div>
+<a mat-raised-button [routerLink]="'/pedidos/crear'" color="primary" class="buttonLink"
+  >Crear pedido</a
+>
+
+</div>
+
+<table mat-table [dataSource]="pedidos" class="mat-elevation-z8">
+  <ng-container matColumnDef="cliente">
+    <th mat-header-cell *matHeaderCellDef>Nombre del cliente</th>
+    <td mat-cell *matCellDef="let element">{{ element.cliente.nombre }} {{ element.cliente.apellido }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="costoBruto">
+    <th mat-header-cell *matHeaderCellDef>Costo bruto</th>
+    <td mat-cell *matCellDef="let element">{{ element.costoBruto }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="costoFinal">
+    <th mat-header-cell *matHeaderCellDef>Costo final</th>
+    <td mat-cell *matCellDef="let element">{{ element.costoFinal }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit/delete">
+    <th mat-header-cell *matHeaderCellDef  style="text-align: center;">Edit/Delete</th>
+    <td mat-cell *matCellDef="let element"  style="text-align: center;">
+      <a
+        mat-button
+        [routerLink]="['/pedidos/editar']"
+        [queryParams]="{ id: element.id }"
+        ><mat-icon>border_color</mat-icon></a
+      >
+      <button mat-button (click)="onDelete(element.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
