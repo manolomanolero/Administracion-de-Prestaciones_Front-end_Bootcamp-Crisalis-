@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PrestacionesService } from 'src/app/services/prestaciones.service';
 import Swal from 'sweetalert2';
 import { __values } from 'tslib';
-import { Prestacion } from '../prestacion.model';
+import { Prestacion } from '../../../models/prestacion.model';
 
 @Component({
   selector: 'app-prestacion-form',

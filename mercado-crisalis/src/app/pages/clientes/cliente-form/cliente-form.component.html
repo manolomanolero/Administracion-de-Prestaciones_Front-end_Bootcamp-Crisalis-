@@ -23,7 +23,7 @@
                         <input required [(ngModel)] = "cliente.dni" name="dni" type="number" matInput placeholder="Digite el dni">
                         <mat-hint>El DNI del cliente es requerido </mat-hint>
                     </mat-form-field>
-                    
+
                     <mat-form-field appearance="fill">
                         <mat-label>Tipo de prestación</mat-label>
                         <mat-select required [(ngModel)] = "cliente.tipo" [(value)]="cliente.tipo" name="tipo" placeholder="Digite el tipo" (ngModelChange)="updateTipo()">
@@ -31,13 +31,6 @@
                           <mat-option value="Consumidor final">Consumidor final</mat-option>
                         </mat-select>
                     </mat-form-field>
-
-                    <!-- <mat-form-field appearance="fill" id="listadoEmpresas" style="display:none;">
-                        <mat-label>Listado empresas</mat-label>
-                        <mat-select [(ngModel)] = "cliente.empresa.id" [(value)]="cliente.empresa.id" name="empresa" id="seleccionEmpresa" placeholder="Elija la empresa">
-                            <mat-option *ngFor="let item of empresas" value="{{item.id}}">{{item.razonSocial}}, CUIT: {{item.cuit}}</mat-option>
-                        </mat-select>
-                    </mat-form-field> -->
 
                     <mat-form-field appearance="fill" id="listadoEmpresas" style="display:none;">
                         <mat-label>Listado empresas</mat-label>

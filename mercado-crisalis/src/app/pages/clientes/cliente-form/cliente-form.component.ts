@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { __values } from 'tslib';
 import { ClientesService } from 'src/app/services/clientes.service';
-import { Cliente } from '../cliente.model';
-import { Empresa } from '../empresa.model';
+import { Cliente } from '../../../models/cliente.model';
+import { Empresa } from '../../../models/empresa.model';
 
 @Component({
   selector: 'app-cliente-form',
@@ -57,7 +57,7 @@ export class ClienteFormComponent implements OnInit {
               //Si hay error cargamos cliente con los valores default
               console.log(error);
               this.modoEdicion = false;
-              let undefinedEmpresa = new Empresa(0, '', 0);
+              let undefinedEmpresa = new Empresa(0, '', 0, new Date());
               this.cliente = new Cliente(0, 0, '', '', undefinedEmpresa);
               this.cliente.tipo = '';
               this.snack.open(
@@ -76,7 +76,7 @@ export class ClienteFormComponent implements OnInit {
     }
 
     if (!this.modoEdicion) {
-      let undefinedEmpresa = new Empresa(0, '', 0);
+      let undefinedEmpresa = new Empresa(0, '', 0, new Date());
       this.cliente = new Cliente(0, 0, '', '', undefinedEmpresa);
       this.cliente.tipo = '';
     }
@@ -197,7 +197,7 @@ export class ClienteFormComponent implements OnInit {
     if (cliente.empresa != null && cliente.empresa.id > 0) {
       return 'Representante empresa';
     } else {
-      this.cliente.empresa = new Empresa(0,"",0);
+      this.cliente.empresa = new Empresa(0,"",0, new Date());
       return 'Consumidor final';
     }
   }

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ImpuestosService } from 'src/app/services/impuestos.service';
 import Swal from 'sweetalert2';
 import { __values } from 'tslib';
-import { Impuesto } from '../impuesto.model';
+import { Impuesto } from '../../../models/impuesto.model';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class ImpuestosFormComponent implements OnInit{
   ngOnInit(): void {
     //Vemos si la ruta es de edición
     this.modoEdicion =
-      this.route.snapshot.url.join().split(',')[2] === 'editar' ? true : false;
+      this.route.snapshot.url.join().split(',')[1] === 'editar' ? true : false;
 
     if (this.modoEdicion) {
       //Obtenemos por url param el id del impuesto

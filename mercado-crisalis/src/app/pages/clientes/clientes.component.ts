@@ -2,7 +2,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
-import { Cliente } from './cliente.model';
+import { Cliente } from '../../models/cliente.model';
 import { ClientesService } from 'src/app/services/clientes.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ClientesService } from 'src/app/services/clientes.service';
   templateUrl: './clientes.component.html',
   styleUrls: ['./clientes.component.scss']
 })
-export class ClientesComponent {
+export class ClientesComponent implements OnInit{
 
   displayedColumns: string[] = ['nombre', 'apellido', 'dni', 'tipo', 'empresa', 'edit/delete'];
   clientes: Cliente[];

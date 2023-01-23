@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { __values } from 'tslib';
 import { ClientesService } from 'src/app/services/clientes.service';
-import { Empresa } from '../../empresa.model';
-
+import { Empresa } from '../../../../models/empresa.model';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @Component({
@@ -49,7 +49,7 @@ export class EmpresasFormComponent {
               //Si hay error cargamos empresa con los valores default
               console.log(error);
               this.modoEdicion = false;
-              this.empresa = new Empresa(0, '', 0);
+              this.empresa = new Empresa(0, '', 0, new Date());
               this.snack.open(
                 'No se encontró la empresa en el sistema !!',
                 'Aceptar',
@@ -66,8 +66,8 @@ export class EmpresasFormComponent {
     }
 
     if (!this.modoEdicion) {
-      let undefinedEmpresa = new Empresa(0, '', 0);
-      this.empresa = new Empresa(0, '', 0);
+      let undefinedEmpresa = new Empresa(0, '', 0, new Date());
+      this.empresa = new Empresa(0, '', 0, new Date());
     }
   }
 

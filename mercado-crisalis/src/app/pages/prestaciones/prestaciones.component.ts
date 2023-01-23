@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { PrestacionesService } from 'src/app/services/prestaciones.service';
-import { Prestacion } from './prestacion.model';
+import { Prestacion } from '../../models/prestacion.model';
 
 
 @Component({

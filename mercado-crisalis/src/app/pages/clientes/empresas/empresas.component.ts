@@ -3,7 +3,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
   import { MatSnackBar } from '@angular/material/snack-bar';
   import Swal from 'sweetalert2';
   import { ClientesService } from 'src/app/services/clientes.service';
-import { Empresa } from '../empresa.model';
+import { Empresa } from '../../../models/empresa.model';
 
 @Component({
   selector: 'app-empresas',
@@ -12,7 +12,7 @@ import { Empresa } from '../empresa.model';
 })
 export class EmpresasComponent {
 
-    displayedColumns: string[] = ['razonSocial', 'cuit', 'edit/delete'];
+    displayedColumns: string[] = ['razonSocial', 'cuit', 'inicioActividades', 'edit/delete'];
     empresas: Empresa[];
   
     constructor(

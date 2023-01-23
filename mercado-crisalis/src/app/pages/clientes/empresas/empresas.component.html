@@ -25,6 +25,11 @@
     <td mat-cell *matCellDef="let element">{{ element.cuit }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="inicioActividades">
+    <th mat-header-cell *matHeaderCellDef>Inicio de Actividades</th>
+    <td mat-cell *matCellDef="let element">{{ element.inicioActividades }}</td>
+  </ng-container>
+
   <ng-container matColumnDef="edit/delete">
     <th mat-header-cell *matHeaderCellDef style="text-align: center">
       Edit/Delete
