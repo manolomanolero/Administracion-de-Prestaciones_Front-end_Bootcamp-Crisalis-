@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Impuesto } from '../pages/impuestos/impuesto.model';
+import { Impuesto } from '../models/impuesto.model';
 import baserUrl from './helper';
 
 @Injectable({

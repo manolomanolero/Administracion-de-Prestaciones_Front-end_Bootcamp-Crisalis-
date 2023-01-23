@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cliente } from '../pages/clientes/cliente.model';
-import { Empresa } from '../pages/clientes/empresa.model';
+import { Cliente } from '../models/cliente.model';
+import { Empresa } from '../models/empresa.model';
 import baserUrl from './helper';
 
 @Injectable({

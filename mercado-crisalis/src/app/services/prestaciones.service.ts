@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Prestacion } from '../pages/prestaciones/prestacion.model';
+import { Prestacion } from '../models/prestacion.model';
 import baserUrl from './helper';
 
 @Injectable({
