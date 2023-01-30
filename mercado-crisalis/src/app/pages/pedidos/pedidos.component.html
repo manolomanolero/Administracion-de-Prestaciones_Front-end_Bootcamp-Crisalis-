@@ -29,9 +29,15 @@
     <td mat-cell *matCellDef="let element">{{ element.costoFinal }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="edit/delete">
+  <ng-container matColumnDef="details/edit/delete">
     <th mat-header-cell *matHeaderCellDef  style="text-align: center;">Edit/Delete</th>
     <td mat-cell *matCellDef="let element"  style="text-align: center;">
+      <a
+        mat-button
+        [routerLink]="['/pedidos/detalles']"
+        [queryParams]="{ id: element.id }"
+        ><mat-icon>search</mat-icon></a
+      >
       <a
         mat-button
         [routerLink]="['/pedidos/editar']"

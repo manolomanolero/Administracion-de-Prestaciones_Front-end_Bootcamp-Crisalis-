@@ -1,0 +1,136 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top : 20px;">
+            <div class = "col-md-10">
+                <a mat-raised-button [routerLink]="'/pedidos'" class="buttonLink" >Volver</a>
+                <h1 class="text-center">Registre el pedido aquí!</h1>
+
+                <form (ngSubmit) = "formSubmit()">
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary">Realizar pedido</button>
+                        <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+                    </div>
+                    <div>
+                        <p>Cliente actual: {{clienteSelected.nombre}} {{clienteSelected.apellido}}, DNI: {{clienteSelected.dni}}
+                          <span *ngIf="clienteSelected.empresa != null">, Representante de: {{clienteSelected.empresa.razonSocial}}, 
+                            CUIT: {{clienteSelected.empresa.cuit}}
+                          </span>
+                        </p>
+                        <p>Cámbie el cliente aquí:
+                        <mat-form-field appearance="outline" id="listadoClientes" >
+                            <mat-label>Listado clientes</mat-label>
+                            <mat-select [(value)] = "clienteSelected" name="cliente" id="seleccionCliente" placeholder="Elija el cliente">
+                                <mat-option *ngFor="let item of clientes" [value]="item">{{item.nombre}} {{item.apellido}}, DNI: {{item.dni}}
+                                  <span *ngIf="item.empresa != null">, Representante de: {{item.empresa.razonSocial}}, 
+                                    CUIT: {{item.empresa.cuit}}
+                                  </span>
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field></p>
+                    </div>
+  
+                    <div>
+                        <h3>Listado actual de detalles</h3>
+
+                        <h4>Costo neto actual: ${{costoNetoActual}}</h4>
+
+                        <table mat-table [dataSource]="detallesPedidos" class="mat-elevation-z8">
+
+                            <ng-container matColumnDef="prestacion">
+                              <th mat-header-cell *matHeaderCellDef> Prestacion </th>
+                              <td mat-cell *matCellDef="let element"> {{element.prestacion.nombre}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="cantidad">
+                                <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                                <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+                              </ng-container>
+
+                              <ng-container matColumnDef="garantia">
+                                <th mat-header-cell *matHeaderCellDef> garantia </th>
+                                <td mat-cell *matCellDef="let element"> {{element.garantia}} </td>
+                              </ng-container>
+                          
+                            <ng-container matColumnDef="costoProducto">
+                              <th mat-header-cell *matHeaderCellDef> Costo de prestacion </th>
+                              <td mat-cell *matCellDef="let element"> {{element.costoProducto}} </td>
+                            </ng-container>
+                          
+                            <ng-container matColumnDef="impuestos">
+                              <th mat-header-cell *matHeaderCellDef> Impuestos </th>
+                              <td mat-cell *matCellDef="let element"> Aca van impuestos </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="costoNeto">
+                                <th mat-header-cell *matHeaderCellDef> Costo neto </th>
+                                <td mat-cell *matCellDef="let element"> {{element.costoNeto}} </td>
+                              </ng-container>
+                          
+                            <ng-container matColumnDef="delete">
+                              <th mat-header-cell *matHeaderCellDef> Edit/Delete </th>
+                              <td mat-cell *matCellDef="let element"> 
+                                <a mat-button (click)="borrarDetalle(element)">
+                                  <mat-icon>delete</mat-icon>
+                                </a>
+                            </ng-container>
+                          
+                            <tr mat-header-row *matHeaderRowDef="detallesDisplayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: detallesDisplayedColumns;"></tr>
+                          </table>
+
+                    </div>
+
+                    <div>
+                        <h3>Agregue su prestacion</h3>
+
+                        <form (ngSubmit) = "formDetailsSubmit()">
+                            <div>
+                                <p>Prestacion actual: <b>{{detallePedidoActual.prestacion.nombre}}</b>, Costo base: ${{detallePedidoActual.prestacion.costo}}, Costo neto: ${{detallePedidoActual.costoNeto}}</p>
+                                <p>Cámbie la prestación aquí:
+                                <mat-form-field appearance="outline" id="listadoPrestaciones" >
+                                    <mat-label>Listado prestaciones</mat-label>
+                                    <mat-select [(value)] = "detallePedidoActual.prestacion" name="prestacion" id="seleccionPrestacion" placeholder="Elija la prestacion">
+                                        <mat-option *ngFor="let item of prestaciones" [value]="item"> {{item.nombre}}, Costo: {{item.costo}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field> </p>
+
+                                <mat-form-field class="full-width" appearance="outline">
+                                    <mat-label>Cantidad de la prestacion</mat-label>
+                                    <input required [(ngModel)] = "detallePedidoActual.cantidad" name="cantidad" type="number" matInput placeholder="Digite la cantidad">
+                                    <mat-hint>La cantidad es requerida </mat-hint>
+                                </mat-form-field>
+
+                                <mat-form-field class="full-width" appearance="outline">
+                                    <mat-label>Años de garantia</mat-label>
+                                    <input required [(ngModel)] = "detallePedidoActual.garantia" name="garantia" type="number" matInput placeholder="Digite la garantia"
+                                    [defaultValue]=0>
+                                </mat-form-field>
+
+                                <div class="full-width soporte" appearance="outline">
+                                  <input [(ngModel)] = "detallePedidoActual.soporteEspecial" class="soporte-checkbox" name="soporteEspecial" type="checkbox" placeholder="Agregue soporte especial"
+                                  [defaultValue]=0>
+                                  <mat-label>Soporte Especial</mat-label>
+                                </div>
+
+                                  <mat-selection-list #impList [(ngModel)]="selectedImpuestos" [ngModelOptions]="{standalone: true}">
+                                    <mat-label>Impuestos</mat-label>
+                                    <mat-list-option *ngFor="let impuesto of impuestos" [value]="impuesto">
+                                      {{impuesto.nombre}} ( %{{impuesto.porcentaje}} )
+                                    </mat-list-option>
+                                  </mat-selection-list>
+                            </div>
+
+                            <div class="container text-center">
+                                <button mat-raised-button color="basic" type="button" (click)='calcularNetoDeDetalle()'>Calcular neto de detalle</button>
+                                <button mat-raised-button color="primary">Agregar al pedido</button>
+                                <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+  </div>
+  

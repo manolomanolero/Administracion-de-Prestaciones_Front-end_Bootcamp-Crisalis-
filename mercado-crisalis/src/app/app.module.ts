@@ -39,6 +39,12 @@ import { EmpresasFormComponent } from './pages/clientes/empresas/empresas-form/e
 import { ImpuestosComponent } from './pages/impuestos/impuestos.component';
 import { ImpuestosFormComponent } from './pages/impuestos/impuestos-form/impuestos-form.component';
 import { ImpuestosService } from './services/impuestos.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { PedidosFormComponent } from './pages/pedidos/pedidos-form/pedidos-form.component';
+import { PedidosService } from './services/pedidos.service';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
+import { DetallesPedidoComponent } from './pages/pedidos/detalles-pedido/detalles-pedido.component';
 
 
 @NgModule({
@@ -55,7 +61,10 @@ import { ImpuestosService } from './services/impuestos.service';
     EmpresasComponent,
     EmpresasFormComponent,
     ImpuestosComponent,
-    ImpuestosFormComponent
+    ImpuestosFormComponent,
+    PedidosComponent,
+    PedidosFormComponent,
+    DetallesPedidoComponent
   ],
   imports: [
     BrowserModule,
@@ -79,9 +88,11 @@ import { ImpuestosService } from './services/impuestos.service';
     MatFormFieldModule,
     MatSnackBarModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [authInterceptorProviders, PrestacionesService, ClientesService, ImpuestosService],
+  providers: [authInterceptorProviders, PrestacionesService, ClientesService, ImpuestosService, PedidosService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

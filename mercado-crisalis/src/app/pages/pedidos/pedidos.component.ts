@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class PedidosComponent {
 
-    displayedColumns: string[] = ['cliente', 'fecha', 'costoBruto', 'costoFinal', 'edit/delete'];
+    displayedColumns: string[] = ['cliente', 'fecha', 'costoBruto', 'costoFinal', 'details/edit/delete'];
     pedidos: Pedido[];
   
     constructor(

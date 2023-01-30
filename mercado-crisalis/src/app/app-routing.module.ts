@@ -8,6 +8,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ImpuestosFormComponent } from './pages/impuestos/impuestos-form/impuestos-form.component';
 import { ImpuestosComponent } from './pages/impuestos/impuestos.component';
 import { LoginComponent } from './pages/login/login.component';
+import { DetallesPedidoComponent } from './pages/pedidos/detalles-pedido/detalles-pedido.component';
+import { PedidosFormComponent } from './pages/pedidos/pedidos-form/pedidos-form.component';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { PrestacionFormComponent } from './pages/prestaciones/prestacion-form/prestacion-form.component';
 import { PrestacionesComponent } from './pages/prestaciones/prestaciones.component';
 import { SingupComponent } from './pages/singup/singup.component';
@@ -86,6 +89,26 @@ const routes: Routes = [
   {
     path: 'impuestos/editar',
     component: ImpuestosFormComponent,
+    pathMatch: 'prefix',
+  },
+  {
+    path: 'pedidos',
+    component: PedidosComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'pedidos/crear',
+    component: PedidosFormComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'pedidos/editar',
+    component: PedidosFormComponent,
+    pathMatch: 'prefix',
+  },
+  {
+    path: 'pedidos/detalles',
+    component: DetallesPedidoComponent,
     pathMatch: 'prefix',
   },
 ];

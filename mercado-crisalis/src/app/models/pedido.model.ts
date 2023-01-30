@@ -17,4 +17,13 @@ export class Pedido{
         this.costoFinal = costoFinal;
         this.detallesPedidos = detallesPedidos;
     }
+
+    calcularCostos(){
+        this.costoBruto = 0;
+        this.costoFinal = 0;
+        this.detallesPedidos.forEach((detalle) => {
+            this.costoBruto += detalle.costoProducto * detalle.cantidad;
+            this.costoFinal += detalle.costoNeto;
+        })
+    }
 }

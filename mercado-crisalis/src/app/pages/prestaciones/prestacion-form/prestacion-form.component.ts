@@ -47,7 +47,7 @@ export class PrestacionFormComponent implements OnInit{
               //Si hay error cargamos prestación con los valores default
               console.log(error);
               this.modoEdicion = false;
-              this.prestacion = new Prestacion(0, '', -1, '');
+              this.prestacion = new Prestacion(0, '', -1, 0, '');
               this.snack.open(
                 'No se encontró la prestación en el sistema !!',
                 'Aceptar',
@@ -64,7 +64,7 @@ export class PrestacionFormComponent implements OnInit{
     }
 
     if (!this.modoEdicion) {
-      this.prestacion = new Prestacion(0, '', -1, '');
+      this.prestacion = new Prestacion(0, '', -1, 0, '');
     }
   }
 
