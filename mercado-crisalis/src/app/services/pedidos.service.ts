@@ -26,6 +26,11 @@ export class PedidosService {
     return this.httpClient.get(`${baserUrl}/pedidos/search?id=` + id);
   }
 
+
+  findPedidoCompleto(id:number) {
+    return this.httpClient.get(`${baserUrl}/pedidos/completo?id=` + id);
+  }
+
   deletePedido(id: number) {
     return this.httpClient.delete(`${baserUrl}/pedidos?id=`+ id);
   }
